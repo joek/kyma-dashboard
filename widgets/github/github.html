@@ -1,0 +1,15 @@
+
+<h1 class="title" data-bind="title"></h1>
+
+
+<table>
+  <tr data-foreach-item="items">
+    <td class="label" data-bind="item.label"></td>
+    <td class="watch" data-bind="item.watch"></td>
+    <td class="star" data-bind="item.star"></td>
+    <td class="fork" data-bind="item.fork"></td>
+  </tr>
+</table>
+
+<p class="more-info" data-bind="moreinfo"></p>
+<p class="updated-at" data-bind="updatedAtMessage"></p>
