@@ -185,9 +185,12 @@ h3 {
     color: $text-color;
 
   }
+  li {
+    margin-left: 35px
 
+  } 
   li:before {
-    content: '\1F95E';
+    content: '➡';
     margin-left: -20px;
     margin-right: 10px;
   }
