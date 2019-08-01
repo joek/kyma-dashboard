@@ -20,8 +20,8 @@ SCHEDULER.every '15m', :first_in => 0 do |job|
       end
       send_event('twitter_mentions', {comments: mentions, moreinfo: "Twitter User: @#{user.screen_name}"})
     end    
-    send_event('twitter_followers', {value: user.followers_count})
-    send_event('twitter_tweets', {value: user.statuses_count})
+    send_event('twitter_followers', {current: user.followers_count})
+    send_event('twitter_tweets', {current: user.statuses_count})
   rescue Twitter::Error
     puts "\e[33mThere was an error with Twitter\e[0m"
   end

@@ -25,10 +25,9 @@ SCHEDULER.every '60m', :first_in => 0 do |job|
   current_duration = user_duration(analytics, current)
   last_duration = user_duration(analytics, last)
 
-  puts current_users
-  puts last_users
-  puts current_duration
-  puts last_duration
+  send_event('website_visitors', {current: current_users[0], last: last_users[0]})
+  send_event('website_returning_visitors', {current: current_users[1], last: last_users[1]})
+  send_event('website_duration', {current: current_duration})
 end
 
 def user_count(analytics, date_range)
@@ -58,7 +57,7 @@ def user_count(analytics, date_range)
     end
   end
 
-  return [new_visitors, returning_visitors]
+  return [new_visitors.to_i, returning_visitors.to_i]
 end
 
 def user_duration(analytics, date_range)
