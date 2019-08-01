@@ -3,11 +3,17 @@
 
 
 <table>
+  <tr>
+    <th></th>
+    <th>Watch</th>
+    <th>Star</th>
+    <th>Fork</th>
+  </tr>
   <tr data-foreach-item="items">
     <td class="label" data-bind="item.label"></td>
-    <td class="watch" data-bind="item.watch"></td>
-    <td class="star" data-bind="item.star"></td>
-    <td class="fork" data-bind="item.fork"></td>
+    <td class="value" data-bind="item.watch"></td>
+    <td class="value" data-bind="item.star"></td>
+    <td class="value" data-bind="item.fork"></td>
   </tr>
 </table>
 

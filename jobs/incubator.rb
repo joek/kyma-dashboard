@@ -15,13 +15,13 @@ require 'json'
 # example for tracking single user repositories
 # github_username = 'users/ephigenia'
 # example for tracking an organisations repositories
-github_username = ENV['GITHUB_REPOS_KYMA'] || 'orgs/foobugs'
+github_username = ENV['GITHUB_REPOS_KYMA_INCUBATOR'] || 'orgs/foobugs'
 # number of repositories to display in the list
 max_length = 6
 # order the list by the numbers
 ordered = true
 
-SCHEDULER.every '60m', :first_in => 0 do |job|
+SCHEDULER.every '15m', :first_in => 0 do |job|
   http = Net::HTTP.new("api.github.com", Net::HTTP.https_default_port())
   http.use_ssl = true
   http.verify_mode = OpenSSL::SSL::VERIFY_NONE # disable ssl certificate check
@@ -45,7 +45,7 @@ SCHEDULER.every '60m', :first_in => 0 do |job|
         repos = repos.sort_by { |obj| -obj[:star] }
     end
 
-    send_event('github_kyma_repos', { items: repos.slice(0, max_length) })
+    send_event('github_incubator_repos', { items: repos.slice(0, max_length) })
 
   end # if
 
