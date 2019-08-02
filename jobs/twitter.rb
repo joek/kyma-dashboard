@@ -11,11 +11,12 @@ twitter = Twitter::REST::Client.new do |config|
 end
 
 SCHEDULER.every '15m', :first_in => 0 do |job|
+  user_name = ENV['TWITTER_USER']
   begin
-    user = twitter.user
+    user = twitter.user(user_name)
     
     if twitter.mentions
-      mentions = twitter.mentions.map do |tweet|
+      mentions = twitter.user_timeline(user_name).map do |tweet|
         { name: tweet.user.name, body: tweet.text, avatar: tweet.user.profile_image_url_https }
       end
       send_event('twitter_mentions', {comments: mentions, moreinfo: "Twitter User: @#{user.screen_name}"})

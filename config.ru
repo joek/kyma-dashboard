@@ -21,6 +21,6 @@ map Sinatra::Application.assets_prefix do
   run Sinatra::Application.sprockets
 end
 
-set :routes_to_cycle_through, [:dod, :social, :code]
+set :routes_to_cycle_through, [:ken, :dod, :social, :code]
 
 run Sinatra::Application
