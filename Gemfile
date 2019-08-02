@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '~> 2.4.1'
+
 gem 'smashing'
 
 ## Remove this if you don't need a twitter widget.
