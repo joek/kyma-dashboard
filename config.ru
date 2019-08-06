@@ -1,4 +1,4 @@
-require "sinatra/cyclist"
+require "sinatra/bicyclist"
 require 'dashing'
 
 
@@ -21,6 +21,10 @@ map Sinatra::Application.assets_prefix do
   run Sinatra::Application.sprockets
 end
 
-set :routes_to_cycle_through, [:ken, :dod, :social, :code, :bucki]
+set :routes_to_cycle_through, {
+  munich: [:ken, :dod, :social, :code, :bucki],
+  gliwice: [:social, :code, :bucki]
+}
+
 
 run Sinatra::Application
