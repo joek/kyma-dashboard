@@ -14,3 +14,6 @@ deploy:
   space: kyma-dashboard
   on:
     repo: cx/c4f-xf-office-dashboard
+  branches:
+    only:
+    - master
