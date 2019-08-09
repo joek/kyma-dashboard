@@ -4,19 +4,17 @@ before_install:
   - gem update --system
   - gem install bundler --version=2.0.1
 
-jobs:
-  include:
-  -  script: date > public/version
-  -  deploy:
-      provider: cloudfoundry
-      api: https://api.cf.eu10.hana.ondemand.com
-      username: SAP_C4CORE_Dashboard_Deployment@global.corp.sap
-      password:
-        secure: cMj0l49397816NXpA8w/weZv1HkmQ4hx+D+cgs4qYkFFP7vC+lSzOd4ggSw9hk9Ad2ts4SfjUzHqCalv5/U+I7GCv2vChmPYh4Hs5hhy/Gitg4xzUZ20NuFGjUhaNSpQ4tRDjmLr2nUkuX0S9C2kh2Lexc6RfUtxrAEBsycUZpdlaeRPsaO7pQP5+D75DalTUr4Cb9iyFfrp7Nbp6Z+HAro8lG4nbmoUzX67E87cm7+V8D/JeUHAxK8Ii9+3D06nv/52YVs0Py1T2vJcobFUSw8iktHiWba+zgdz8SRrGRZ7L1/CE+N71eRWyGWGbusnXJN4nE4FuSMMApSiTyaeXlitYc4wUVyQjFP2V4AR4d97r6KKoiv5tL5TMxOHm6XFXbg8RlQg6D/UXKMhV6wR4Hxiyei5gpquQaIAjBIgQWo2ibEI/EILKncSDnCSoCLHV4sx5SD71RpoUWFBEXXUXffYJOv6m6etwA/yrLS8pZQtFLKh9E9/j/G+cvthHrEB5SLjC+1TrH2ApA58ABQcaHIXRNr2qLqScBgAPqlnWxd42hWD5h0Zp1QKnq4C4KMPBaTWdRiNTI+SU23XZpB05xVfMJAcw6c2m7dZbDM2X7CBgMdhkupdE/4l+lvutFAk+F6nS/PSNGJqmqZ5Kie0wj610P9Sy0up3MC7mYy1M8c=
-      organization: D061240trial_kyma-dashboard
-      space: kyma-dashboard
-      on:
-        repo: cx/c4f-xf-office-dashboard
-      branches:
-        only:
-        - master
+script: date > public/version
+deploy:
+  provider: cloudfoundry
+  api: https://api.cf.eu10.hana.ondemand.com
+  username: SAP_C4CORE_Dashboard_Deployment@global.corp.sap
+  password:
+    secure: cMj0l49397816NXpA8w/weZv1HkmQ4hx+D+cgs4qYkFFP7vC+lSzOd4ggSw9hk9Ad2ts4SfjUzHqCalv5/U+I7GCv2vChmPYh4Hs5hhy/Gitg4xzUZ20NuFGjUhaNSpQ4tRDjmLr2nUkuX0S9C2kh2Lexc6RfUtxrAEBsycUZpdlaeRPsaO7pQP5+D75DalTUr4Cb9iyFfrp7Nbp6Z+HAro8lG4nbmoUzX67E87cm7+V8D/JeUHAxK8Ii9+3D06nv/52YVs0Py1T2vJcobFUSw8iktHiWba+zgdz8SRrGRZ7L1/CE+N71eRWyGWGbusnXJN4nE4FuSMMApSiTyaeXlitYc4wUVyQjFP2V4AR4d97r6KKoiv5tL5TMxOHm6XFXbg8RlQg6D/UXKMhV6wR4Hxiyei5gpquQaIAjBIgQWo2ibEI/EILKncSDnCSoCLHV4sx5SD71RpoUWFBEXXUXffYJOv6m6etwA/yrLS8pZQtFLKh9E9/j/G+cvthHrEB5SLjC+1TrH2ApA58ABQcaHIXRNr2qLqScBgAPqlnWxd42hWD5h0Zp1QKnq4C4KMPBaTWdRiNTI+SU23XZpB05xVfMJAcw6c2m7dZbDM2X7CBgMdhkupdE/4l+lvutFAk+F6nS/PSNGJqmqZ5Kie0wj610P9Sy0up3MC7mYy1M8c=
+  organization: D061240trial_kyma-dashboard
+  space: kyma-dashboard
+  on:
+    repo: cx/c4f-xf-office-dashboard
+  branches:
+    only:
+    - master
