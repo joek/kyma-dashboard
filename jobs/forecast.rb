@@ -2,7 +2,7 @@ require 'net/https'
 require 'json'
 
 # Forecast API Key from https://developer.forecast.io
-$forecast_api_key = "9f9ea934981bbeae40889866c7cc2fe5"
+$forecast_api_key = ENV["FORECAST_API_KEY"]
 
 
 $locations = [
