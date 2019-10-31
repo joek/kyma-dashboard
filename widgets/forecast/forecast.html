@@ -1,0 +1,26 @@
+
+<h1 class="name" data-bind="name"></h1>
+<div class="updated-at" data-bind="updatedAtMessage"></div>
+
+
+<div>
+	<h1 class="title">RIGHT NOW</h1>
+	
+	<div class="summary" >
+			<span data-bind="current_temp | raw"></span> - 
+			<span data-bind="current_desc | raw"></span>
+	</div>
+	  
+</div>
+
+
+
+<div style="margin-top: 25px">
+	<h1 class="title">LATER</h1>
+	<div class="summary">
+		<span data-bind="later_temp | raw"></span> - 
+		<span data-bind="later_desc | raw"></span>
+	</div>
+</div>
+
+
